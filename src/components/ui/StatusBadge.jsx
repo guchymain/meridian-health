@@ -15,12 +15,25 @@ const DOT_TONES = {
   neutral: 'bg-muted',
 }
 
+const SIGNS = {
+  success: '✓',
+  warning: '!',
+  error: '!',
+  info: 'i',
+  neutral: '•',
+}
+
 export default function StatusBadge({ tone = 'neutral', children }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-label ${TONES[tone]}`}
+      className={`inline-flex items-center gap-1.5 rounded-md border border-black/5 px-2 py-1 text-label font-medium ${TONES[tone]}`}
     >
-      <span className={`h-1.5 w-1.5 rounded-full ${DOT_TONES[tone]}`} aria-hidden="true" />
+      <span
+        className={`flex h-3.5 w-3.5 items-center justify-center rounded-sm text-[10px] font-bold leading-none text-white ${DOT_TONES[tone]}`}
+        aria-hidden="true"
+      >
+        {SIGNS[tone]}
+      </span>
       {children}
     </span>
   )
