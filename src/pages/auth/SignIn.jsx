@@ -1,9 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BrandMark } from '../../components/Brand.jsx'
 import Button from '../../components/ui/Button.jsx'
 import Card from '../../components/ui/Card.jsx'
 import Field from '../../components/ui/Field.jsx'
 import Input from '../../components/ui/Input.jsx'
+
+const DEMO_ROLES = [
+  { label: 'Patient', to: '/patient' },
+  { label: 'Clinician', to: '/clinician' },
+  { label: 'Front desk', to: '/staff' },
+  { label: 'Admin', to: '/admin' },
+]
 
 export default function SignIn() {
   const navigate = useNavigate()
@@ -19,17 +27,8 @@ export default function SignIn() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center gap-2 text-center">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M12 3v18M3 12h18"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-          <h1 className="text-h2 text-text">Meridian Health</h1>
+          <BrandMark size={40} />
+          <h1 className="text-h2 text-text">Northwell Care</h1>
           <p className="text-body text-muted">Sign in to continue to your account</p>
         </div>
 
@@ -78,6 +77,24 @@ export default function SignIn() {
         <p className="mt-6 text-center text-supporting text-muted">
           Protected health information. Access is logged and monitored.
         </p>
+
+        <div className="mt-8 border-t border-border pt-6">
+          <p className="text-center text-supporting text-muted">
+            Prototype — no real accounts yet. Preview a role:
+          </p>
+          <div className="mt-3 flex flex-wrap justify-center gap-2">
+            {DEMO_ROLES.map((role) => (
+              <Button
+                key={role.to}
+                variant="secondary"
+                size="sm"
+                onClick={() => navigate(role.to)}
+              >
+                {role.label}
+              </Button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

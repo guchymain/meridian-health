@@ -1,22 +1,13 @@
 import { NavLink } from 'react-router-dom'
+import Logo from '../components/Brand.jsx'
 
 export default function AppShell({ navItems, roleLabel, userName, pageTitle, children }) {
   return (
     <div className="min-h-screen bg-background">
       <div className="flex">
         <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-surface md:flex">
-          <div className="flex h-16 items-center gap-2 border-b border-border px-5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M12 3v18M3 12h18"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-            <span className="text-h4 text-text">Meridian Health</span>
+          <div className="flex h-16 items-center border-b border-border px-5">
+            <Logo size={28} />
           </div>
 
           <nav className="flex flex-1 flex-col gap-1 p-3">

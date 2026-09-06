@@ -1,27 +1,17 @@
 import { Link } from 'react-router-dom'
+import Logo, { BRAND_NAME } from '../components/Brand.jsx'
 import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
 import { Icon, icons } from './home/icons.jsx'
+import NewsCard from './home/NewsCard.jsx'
+import NewsletterForm from './home/NewsletterForm.jsx'
 import { DashboardPreview, MessagesPreview, RecordsPreview } from './home/previews.jsx'
-
-function Logo() {
-  return (
-    <Link to="/" className="flex items-center gap-2">
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3v18M3 12h18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        </svg>
-      </div>
-      <span className="text-h4 text-text">Meridian Health</span>
-    </Link>
-  )
-}
 
 function Nav() {
   return (
     <header className="border-b border-border bg-surface">
       <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 md:px-8">
-        <Logo />
+        <Logo size={32} />
         <nav className="hidden items-center gap-8 md:flex">
           <a href="#for-patients" className="text-body text-muted hover:text-text">
             For patients
@@ -58,7 +48,7 @@ function FeatureRow({ eyebrow, title, description, preview, reverse }) {
   )
 }
 
-function AudienceCard({ icon, title, description }) {
+function IconCard({ icon, title, description }) {
   return (
     <Card className="flex flex-col gap-3">
       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-info-subtle text-primary">
@@ -129,36 +119,82 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Audience section */}
-        <section id="for-providers" className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
-          <div className="mx-auto max-w-reading text-center">
-            <h2 className="text-h2 text-text">Built for every part of a care team</h2>
-            <p className="mt-3 text-body-lg text-muted">
-              One platform, four connected experiences — each built for how that person actually
-              works.
-            </p>
+        {/* Why choose us */}
+        <section className="border-t border-border bg-background">
+          <div className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
+            <div className="mx-auto max-w-reading text-center">
+              <h2 className="text-h2 text-text">Why choose {BRAND_NAME}</h2>
+              <p className="mt-3 text-body-lg text-muted">
+                Built around the things that actually make care feel reliable.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <IconCard
+                icon={icons.verified}
+                title="Verified providers"
+                description="Every clinician's license and credentials are verified before they see a patient."
+              />
+              <IconCard
+                icon={icons.tag}
+                title="Transparent pricing"
+                description="See the cost of a visit before you book — no surprise bills after the fact."
+              />
+              <IconCard
+                icon={icons.link}
+                title="One connected record"
+                description="Every visit, result, and message lives in a single record your whole care team can see."
+              />
+              <IconCard
+                icon={icons.lock}
+                title="Security by design"
+                description="Role-based access and full audit trails protect your health information at every step."
+              />
+              <IconCard
+                icon={icons.video}
+                title="Reliable video visits"
+                description="Built to hold up on a weak connection, with chat as an automatic fallback."
+              />
+              <IconCard
+                icon={icons.headset}
+                title="Real human support"
+                description="A support team is available when something needs a person, not just a form."
+              />
+            </div>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            <AudienceCard
-              icon={icons.patient}
-              title="For patients"
-              description="Book care, message your team, and manage billing without the runaround."
-            />
-            <AudienceCard
-              icon={icons.provider}
-              title="For providers"
-              description="Chart efficiently with templated encounters and a clear daily queue."
-            />
-            <AudienceCard
-              icon={icons.org}
-              title="For organizations"
-              description="Manage staff, scheduling, and compliance across every location."
-            />
+        </section>
+
+        {/* Audience section */}
+        <section id="for-providers" className="border-t border-border bg-surface">
+          <div className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
+            <div className="mx-auto max-w-reading text-center">
+              <h2 className="text-h2 text-text">Built for every part of a care team</h2>
+              <p className="mt-3 text-body-lg text-muted">
+                One platform, four connected experiences — each built for how that person actually
+                works.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+              <IconCard
+                icon={icons.patient}
+                title="For patients"
+                description="Book care, message your team, and manage billing without the runaround."
+              />
+              <IconCard
+                icon={icons.provider}
+                title="For providers"
+                description="Chart efficiently with templated encounters and a clear daily queue."
+              />
+              <IconCard
+                icon={icons.org}
+                title="For organizations"
+                description="Manage staff, scheduling, and compliance across every location."
+              />
+            </div>
           </div>
         </section>
 
         {/* Trust / compliance */}
-        <section className="border-t border-border bg-surface">
+        <section className="border-t border-border bg-background">
           <div className="mx-auto flex max-w-content flex-col items-start gap-4 px-4 py-14 md:flex-row md:items-center md:gap-6 md:px-8">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-info-subtle text-info">
               <Icon d={icons.shield} className="h-5 w-5" />
@@ -173,17 +209,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* News & Insights */}
+        <section className="border-t border-border bg-surface">
+          <div className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-h2 text-text">News &amp; insights</h2>
+                <p className="mt-2 text-body-lg text-muted">
+                  Plain-language guidance on getting the most out of your care.
+                </p>
+              </div>
+              <a href="#" className="text-body text-primary hover:underline">
+                View all articles →
+              </a>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-3">
+              <NewsCard
+                category="Health literacy"
+                title="How to actually read your lab results"
+                excerpt="A plain-language guide to the numbers, ranges, and flags on a standard panel."
+                date="Aug 28, 2026"
+              />
+              <NewsCard
+                category="Privacy"
+                title="What HIPAA actually protects — and what it doesn't"
+                excerpt="A short guide to your rights over your own health information."
+                date="Aug 14, 2026"
+              />
+              <NewsCard
+                category="Telehealth"
+                title="Video visit or in-person? A simple way to decide"
+                excerpt="When a virtual visit works just as well, and when it's worth going in."
+                date="Jul 30, 2026"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Newsletter */}
+        <section className="border-t border-border bg-background">
+          <div className="px-4 py-16 md:px-8 md:py-20">
+            <NewsletterForm />
+          </div>
+        </section>
+
         {/* Final CTA */}
-        <section className="mx-auto max-w-content px-4 py-16 text-center md:px-8 md:py-20">
-          <h2 className="text-h2 text-text">Ready to get started?</h2>
-          <p className="mx-auto mt-3 max-w-reading text-body-lg text-muted">
-            Create an account to book your first visit, or sign in if your care team already has
-            you set up.
-          </p>
-          <div className="mt-8">
-            <Link to="/sign-in">
-              <Button size="lg">Get started</Button>
-            </Link>
+        <section className="border-t border-border bg-surface">
+          <div className="mx-auto max-w-content px-4 py-16 text-center md:px-8 md:py-20">
+            <h2 className="text-h2 text-text">Ready to get started?</h2>
+            <p className="mx-auto mt-3 max-w-reading text-body-lg text-muted">
+              Create an account to book your first visit, or sign in if your care team already has
+              you set up.
+            </p>
+            <div className="mt-8">
+              <Link to="/sign-in">
+                <Button size="lg">Get started</Button>
+              </Link>
+            </div>
           </div>
         </section>
       </main>
@@ -246,7 +328,7 @@ export default function Home() {
             </div>
           </div>
           <p className="mt-10 border-t border-border pt-6 text-supporting text-muted">
-            © 2026 Meridian Health. All rights reserved.
+            © 2026 {BRAND_NAME}. All rights reserved.
           </p>
         </div>
       </footer>
