@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home.jsx'
 import Placeholder from './pages/Placeholder.jsx'
 import SignIn from './pages/auth/SignIn.jsx'
 import PatientDashboard from './pages/patient/PatientDashboard.jsx'
@@ -6,7 +7,7 @@ import PatientDashboard from './pages/patient/PatientDashboard.jsx'
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/sign-in" replace />} />
+      <Route path="/" element={<Home />} />
       <Route path="/sign-in" element={<SignIn />} />
 
       <Route path="/patient" element={<PatientDashboard />} />

@@ -2,7 +2,7 @@
 
 /*
   Design tokens — see /home/mann/.claude/plans/create-a-plan-for-jazzy-honey.md (Section 5)
-  Light mode is the default palette. Dark mode remaps the same semantic roles, never re-hues them.
+  Light mode only — deliberately no dark theme (see Section 5.3).
 */
 @theme {
   --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -68,18 +68,6 @@
   --breakpoint-tablet: 37.5rem; /* 600px */
   --breakpoint-desktop: 64rem; /* 1024px */
   --breakpoint-wide: 90rem; /* 1440px */
-}
-
-/* Dark mode — same semantic roles, remapped values, never re-hued. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0e1116;
-    --color-surface: #161a20;
-    --color-border: #262b33;
-    --color-border-strong: #383f4a;
-    --color-text: #edeff2;
-    --color-muted: #9ba1ac;
-  }
 }
 
 /* Custom width utilities matching the design system's content-width rules. */
