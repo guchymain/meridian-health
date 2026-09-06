@@ -10,7 +10,7 @@ export default function NewsCard({ category, title, excerpt, date }) {
       <p className="text-body text-muted">{excerpt}</p>
       <div className="mt-2 flex items-center justify-between">
         <span className="text-supporting text-muted">{date}</span>
-        <a href="#" className="text-data text-primary hover:underline">
+        <a href="#insights" className="text-data text-primary hover:underline">
           Read more →
         </a>
       </div>
