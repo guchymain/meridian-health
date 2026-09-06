@@ -12,7 +12,7 @@ export default function StatTile({ label, value, tone = 'text' }) {
   return (
     <Card className="p-4">
       <p className="text-label text-muted">{label}</p>
-      <p className={`mt-1 text-h2 ${TONES[tone]}`}>{value}</p>
+      <p className={`mt-1 text-[1.7rem] font-semibold leading-none tracking-tight ${TONES[tone]}`}>{value}</p>
     </Card>
   )
 }
