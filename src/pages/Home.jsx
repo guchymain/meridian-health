@@ -9,10 +9,10 @@ import { DashboardPreview, MessagesPreview, RecordsPreview } from './home/previe
 
 function Nav() {
   return (
-    <header className="border-b border-border bg-surface">
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 md:px-8">
-        <Logo size={32} />
-        <nav className="hidden items-center gap-8 md:flex">
+    <header className="border-b border-border/80 bg-surface/95 backdrop-blur">
+      <div className="mx-auto flex h-[72px] max-w-content items-center justify-between px-4 md:px-8">
+        <Logo size={34} textClassName="hidden text-h4 text-text sm:inline" />
+        <nav className="hidden items-center gap-8 lg:flex">
           <a href="#for-patients" className="text-body text-muted hover:text-text">
             For patients
           </a>
@@ -20,8 +20,8 @@ function Nav() {
             For providers
           </a>
         </nav>
-        <div className="flex items-center gap-3">
-          <Link to="/sign-in" className="text-body text-text hover:underline">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <Link to="/sign-in" className="whitespace-nowrap px-2 text-body text-text hover:underline">
             Log in
           </Link>
           <Link to="/sign-in">
@@ -67,28 +67,54 @@ export default function Home() {
 
       <main>
         {/* Hero */}
-        <section className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
-          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            <div>
-              <h1 className="text-h1 text-text md:text-[2.5rem] md:leading-[1.15]">
-                Modern care, connected in one place.
-              </h1>
-              <p className="mt-4 text-body-lg text-muted">
-                Book visits, message your care team, and manage your health record — one secure
-                platform for patients, providers, and care teams.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/sign-in">
-                  <Button size="lg">Get started</Button>
-                </Link>
-                <a href="#for-patients">
-                  <Button variant="secondary" size="lg">
-                    See how it works
-                  </Button>
-                </a>
+        <section className="mx-auto max-w-content px-4 pb-16 pt-10 md:px-8 md:pb-24 md:pt-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#123f3d] px-6 py-10 text-white shadow-[0_24px_60px_rgba(18,63,61,0.18)] md:px-12 md:py-16">
+            <div className="absolute -right-24 -top-28 h-80 w-80 rounded-full border-[36px] border-white/5" />
+            <div className="absolute -bottom-36 right-20 h-64 w-64 rounded-full border-[22px] border-[#8ed6c8]/10" />
+            <div className="relative grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_360px] md:gap-16">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-label text-[#b9e9df]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#8ed6c8]" />
+                  Care that fits your life
+                </div>
+                <h1 className="mt-5 text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.035em] md:text-[3.75rem]">
+                  Your health, in good hands.
+                </h1>
+                <p className="mt-5 max-w-xl text-body-lg text-white/75 md:text-[1.15rem]">
+                  Book visits, message your care team, and understand your health record — all in
+                  one secure, connected place.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/sign-in">
+                    <Button size="lg" className="bg-[#a9e4d9] text-[#123f3d] shadow-none hover:bg-white">
+                      Get started
+                    </Button>
+                  </Link>
+                  <a href="#for-patients">
+                    <Button variant="ghost" size="lg" className="border border-white/20 text-white hover:bg-white/10">
+                      Explore the platform
+                    </Button>
+                  </a>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-supporting text-white/60">
+                  <span>✓ Verified providers</span>
+                  <span>✓ Transparent pricing</span>
+                  <span>✓ Secure by design</span>
+                </div>
+              </div>
+              <div className="relative">
+                <DashboardPreview />
+                <div className="absolute -bottom-5 -left-4 hidden items-center gap-3 rounded-xl border border-white/10 bg-white px-3 py-2 text-text shadow-xl sm:flex">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-success-subtle text-success">✓</span>
+                  <span><strong className="block text-data">Care team connected</strong><small className="text-supporting text-muted">Your record is up to date</small></span>
+                </div>
               </div>
             </div>
-            <DashboardPreview />
+          </div>
+          <div className="grid gap-4 border-b border-border px-1 py-8 sm:grid-cols-3 md:px-6">
+            <div><p className="text-[1.65rem] font-semibold tracking-tight text-text">24/7</p><p className="text-supporting text-muted">Access to your care team</p></div>
+            <div><p className="text-[1.65rem] font-semibold tracking-tight text-text">1 place</p><p className="text-supporting text-muted">For visits, records, and billing</p></div>
+            <div><p className="text-[1.65rem] font-semibold tracking-tight text-text">100%</p><p className="text-supporting text-muted">Private and secure by design</p></div>
           </div>
         </section>
 
@@ -120,7 +146,7 @@ export default function Home() {
         </section>
 
         {/* Why choose us */}
-        <section className="border-t border-border bg-background">
+        <section id="security" className="border-t border-border bg-background">
           <div className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
             <div className="mx-auto max-w-reading text-center">
               <h2 className="text-h2 text-text">Why choose {BRAND_NAME}</h2>
@@ -210,7 +236,7 @@ export default function Home() {
         </section>
 
         {/* News & Insights */}
-        <section className="border-t border-border bg-surface">
+        <section id="insights" className="border-t border-border bg-surface">
           <div className="mx-auto max-w-content px-4 py-16 md:px-8 md:py-24">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -219,7 +245,7 @@ export default function Home() {
                   Plain-language guidance on getting the most out of your care.
                 </p>
               </div>
-              <a href="#" className="text-body text-primary hover:underline">
+              <a href="#insights" className="text-body text-primary hover:underline">
                 View all articles →
               </a>
             </div>
@@ -299,12 +325,12 @@ export default function Home() {
                 <p className="text-label text-text">Company</p>
                 <ul className="mt-3 flex flex-col gap-2 text-body text-muted">
                   <li>
-                    <a href="#" className="hover:text-text">
+                    <a href="#for-patients" className="hover:text-text">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-text">
+                    <a href="mailto:hello@northwellcare.example" className="hover:text-text">
                       Contact
                     </a>
                   </li>
@@ -314,12 +340,12 @@ export default function Home() {
                 <p className="text-label text-text">Legal</p>
                 <ul className="mt-3 flex flex-col gap-2 text-body text-muted">
                   <li>
-                    <a href="#" className="hover:text-text">
+                    <a href="#security" className="hover:text-text">
                       Privacy
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-text">
+                    <a href="#security" className="hover:text-text">
                       Terms
                     </a>
                   </li>

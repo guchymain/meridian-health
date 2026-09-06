@@ -63,7 +63,7 @@ export default function SignIn() {
                 <input type="checkbox" className="h-4 w-4 rounded border-border-strong accent-primary" />
                 Stay signed in
               </label>
-              <a href="#" className="text-primary hover:underline">
+              <a href="mailto:support@northwellcare.example" className="text-primary hover:underline">
                 Forgot password?
               </a>
             </div>
