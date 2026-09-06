@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — see /home/mann/.claude/plans/create-a-plan-for-jazzy-honey.md (Section 5)
+  Light mode is the default palette. Dark mode remaps the same semantic roles, never re-hues them.
+*/
+@theme {
+  --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Color — semantic roles */
+  --color-primary: #0b5fff;
+  --color-primary-hover: #0a52dd;
+  --color-secondary: #0f766e;
+  --color-secondary-hover: #0c5f59;
+
+  --color-background: #f7f8fa;
+  --color-surface: #ffffff;
+
+  --color-border: #e2e5ea;
+  --color-border-strong: #c7ccd4;
+
+  --color-text: #111418;
+  --color-muted: #5b616e;
+
+  --color-success: #15803d;
+  --color-success-subtle: #eaf7ee;
+  --color-warning: #b45309;
+  --color-warning-subtle: #fdf3e7;
+  --color-error: #b91c1c;
+  --color-error-subtle: #fdebeb;
+  --color-info: #1d4ed8;
+  --color-info-subtle: #eaf1fe;
+
+  /* Typography scale (desktop). Mobile step-downs are applied per component. */
+  --text-h1: 1.75rem; /* 28px */
+  --text-h1--line-height: 2.25rem; /* 36px */
+  --text-h1--font-weight: 600;
+
+  --text-h2: 1.375rem; /* 22px */
+  --text-h2--line-height: 1.875rem; /* 30px */
+  --text-h2--font-weight: 600;
+
+  --text-h3: 1.125rem; /* 18px */
+  --text-h3--line-height: 1.625rem; /* 26px */
+  --text-h3--font-weight: 600;
+
+  --text-h4: 0.9375rem; /* 15px */
+  --text-h4--line-height: 1.375rem; /* 22px */
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: 1.0625rem; /* 17px */
+  --text-body-lg--line-height: 1.75rem; /* 28px */
+
+  --text-body: 1rem; /* 16px */
+  --text-body--line-height: 1.5rem; /* 24px */
+
+  --text-label: 0.8125rem; /* 13px */
+  --text-label--line-height: 1.125rem; /* 18px */
+  --text-label--font-weight: 500;
+
+  --text-supporting: 0.8125rem; /* 13px */
+  --text-supporting--line-height: 1.125rem; /* 18px */
+
+  --text-data: 0.875rem; /* 14px */
+  --text-data--line-height: 1.25rem; /* 20px */
+
+  /* Breakpoints */
+  --breakpoint-tablet: 37.5rem; /* 600px */
+  --breakpoint-desktop: 64rem; /* 1024px */
+  --breakpoint-wide: 90rem; /* 1440px */
+}
+
+/* Dark mode — same semantic roles, remapped values, never re-hued. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0e1116;
+    --color-surface: #161a20;
+    --color-border: #262b33;
+    --color-border-strong: #383f4a;
+    --color-text: #edeff2;
+    --color-muted: #9ba1ac;
+  }
+}
+
+/* Custom width utilities matching the design system's content-width rules. */
+@utility max-w-reading {
+  max-width: 45rem; /* 720px */
+}
+@utility max-w-content {
+  max-width: 80rem; /* 1280px */
+}
+@utility max-w-dense {
+  max-width: 100rem; /* 1600px */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+}
