@@ -5,22 +5,22 @@
   Light mode only — deliberately no dark theme (see Section 5.3).
 */
 @theme {
-  --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "DM Sans", "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Color — semantic roles */
-  --color-primary: #0b5fff;
-  --color-primary-hover: #0a52dd;
-  --color-secondary: #0f766e;
-  --color-secondary-hover: #0c5f59;
+  --color-primary: #176b68;
+  --color-primary-hover: #105754;
+  --color-secondary: #e8f3f1;
+  --color-secondary-hover: #d8ebe8;
 
-  --color-background: #f7f8fa;
+  --color-background: #f4f7f6;
   --color-surface: #ffffff;
 
-  --color-border: #e2e5ea;
-  --color-border-strong: #c7ccd4;
+  --color-border: #e1e9e7;
+  --color-border-strong: #c3d3d0;
 
-  --color-text: #111418;
-  --color-muted: #5b616e;
+  --color-text: #142321;
+  --color-muted: #657572;
 
   --color-success: #15803d;
   --color-success-subtle: #eaf7ee;
@@ -28,8 +28,8 @@
   --color-warning-subtle: #fdf3e7;
   --color-error: #b91c1c;
   --color-error-subtle: #fdebeb;
-  --color-info: #1d4ed8;
-  --color-info-subtle: #eaf1fe;
+  --color-info: #16697a;
+  --color-info-subtle: #e8f5f7;
 
   /* Typography scale (desktop). Mobile step-downs are applied per component. */
   --text-h1: 1.75rem; /* 28px */
@@ -82,8 +82,11 @@
 }
 
 @layer base {
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-text antialiased;
     font-variant-numeric: tabular-nums;
   }
+
+  button, a { -webkit-tap-highlight-color: transparent; }
 }
